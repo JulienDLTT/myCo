@@ -1,0 +1,17 @@
+[build]
+  base    = "myCo/client"
+  command = "npm run build"
+  publish = "dist"
+
+# Proxy /api/* vers ton backend hébergé ailleurs
+[[redirects]]
+  from   = "/api/*"
+  to     = "https://TON-BACKEND.onrender.com/api/:splat"
+  status = 200
+  force  = true
+
+# SPA fallback — indispensable pour React Router
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
