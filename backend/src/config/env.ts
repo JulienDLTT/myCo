@@ -15,7 +15,7 @@ function optional(name: string, fallback: string): string {
 }
 
 export const env = {
-  port: Number.parseInt(optional("PORT", "5000"), 10),
+  port: Number.parseInt(process.env["PORT"] || "5000", 10),
   databaseUrl: required("DATABASE_URL"),
   redisUrl: optional("REDIS_URL", "redis://localhost:6379"),
   accessTokenSecret: required("ACCESS_TOKEN_SECRET"),
